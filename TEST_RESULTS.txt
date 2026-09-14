@@ -1,0 +1,29 @@
+Protocol and integration validation run:
+UTC 2026-07-18T22:37:45Z
+
+$ cmake --build build && ctest --test-dir build --output-on-failure
+[ 50%] Built target csi_protocol_v1
+[100%] Built target protocol_v1_test
+Internal ctest changing into directory: /mnt/data/CSIdump-v1-client-requirements/build
+Test project /mnt/data/CSIdump-v1-client-requirements/build
+    Start 1: protocol_v1_test
+1/1 Test #1: protocol_v1_test .................   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.02 sec
+
+$ python3 python/generate_sample_packet.py
+wrote /mnt/data/CSIdump-v1-client-requirements/samples/csi_v1_sample.bin (368 bytes)
+CRC32=0x2ce75e04
+
+$ Python sample parse summary
+packet_bytes=368
+header_bytes=112
+payload_bytes=256
+sample_count=64
+first_bin=(-32, 32) last_bin=(31, -31)
+crc32=0x2ce75e04
+native_order=True fftshift=False
+tx_sequence_valid=False
+transmitter=cc:d8:43:b8:24:47
